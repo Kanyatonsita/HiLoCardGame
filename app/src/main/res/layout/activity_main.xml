@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCB0AFFC"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="1.9"
+        android:scaleType="fitCenter"
+        android:src="@drawable/background" />
+
+    <Button
+        android:id="@+id/restartButton"
+        android:layout_width="175dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#A82C0735"
+        android:fontFamily="@font/oleo_script"
+        android:onClick="startGameActivity"
+        android:text="Start"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOverTextView" />
+
+    <TextView
+        android:id="@+id/gameOverTextView"
+        android:layout_width="323dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="150dp"
+        android:background="#EBA594F9"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/oleo_script"
+        android:text="textView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/gameNamn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/oleo_script"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/gameOverTextView"
+        app:layout_constraintEnd_toEndOf="@+id/gameOverTextView"
+        app:layout_constraintStart_toStartOf="@+id/gameOverTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
