@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         welcomeTextView = findViewById(R.id.gameOverTextView)
-        welcomeTextView.text = "Welcome to\nmy game card!!"
+        welcomeTextView.text = "Welcome to\nmy card game!!"
 
         gameTextView = findViewById(R.id.gameNamn)
         gameTextView.text = "High  &  Low  game."
