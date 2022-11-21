@@ -8,7 +8,24 @@
     tools:context=".GameActivity">
 
     <TextView
-        android:id="@+id/roundTextView"
+        android:id="@+id/massageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/oleo_script"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guess" />
+
+    <TextView
+        android:id="@+id/lifeTextView"
         android:layout_width="76dp"
         android:layout_height="24dp"
         android:layout_marginStart="10dp"
@@ -71,26 +88,36 @@
 
     <Button
         android:id="@+id/higherButton"
-        android:layout_width="109dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="30dp"
+        android:layout_width="123dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="500dp"
         android:backgroundTint="#A82C0735"
-        android:onClick="gameOver"
         android:text="Higher"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roundTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/lifeTextView" />
 
     <Button
         android:id="@+id/lowerButton"
-        android:layout_width="109dp"
-        android:layout_height="49dp"
+        android:layout_width="123dp"
+        android:layout_height="54dp"
         android:layout_marginTop="500dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="40dp"
         android:backgroundTint="#A82C0735"
-        android:onClick="gameOver"
         android:text="Lower"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rightAnswers" />
+
+    <ImageView
+        android:id="@+id/CardsImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question"
+        app:srcCompat="@drawable/spades_queen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var welcomeTextView: TextView
     lateinit var gameTextView: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,4 +28,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
+
+
 }
