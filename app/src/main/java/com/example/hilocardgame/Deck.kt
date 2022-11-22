@@ -2,11 +2,13 @@ package com.example.hilocardgame
 
 class Deck () {
     var cardList = mutableListOf<Card>()
-    lateinit var currentCard: Card
+    lateinit var oldCard: Card
     lateinit var nextCard: Card
 
     init {
         cresteCards()
+        getNewCard()
+        cardList.shuffle()
     }
 
 fun cresteCards (){
@@ -65,10 +67,12 @@ fun cresteCards (){
 }
 
     fun getNewCard () : Card {
-        val rnd = (0 until cardList.size).random()
-        currentCard = cardList [rnd]
         nextCard = cardList.removeAt(0)
+        oldCard = cardList[0]
         return nextCard
     }
+
+
 }
+
 

@@ -43,6 +43,7 @@ class GameActivity : AppCompatActivity() {
         message = findViewById(R.id.massageTextView)
 
         showCardsImage = findViewById(R.id.CardsImage)
+        showCardsImage.setImageResource(cardDeck.cardList[0].image)
 
 
         val hiButton = findViewById<Button>(R.id.higherButton)
@@ -52,7 +53,7 @@ class GameActivity : AppCompatActivity() {
 
         hiButton.setOnClickListener{
             cardDeck.getNewCard()
-            if (cardDeck.currentCard.value > cardDeck.nextCard.value){
+            if (cardDeck.oldCard.value >= cardDeck.nextCard.value){
                 message.text = "Correct, Good jobb!!"
                 correctAnswer++
 
@@ -60,13 +61,14 @@ class GameActivity : AppCompatActivity() {
                 message.text = "Wrong, try again!!"
                 wrongGuesses--
             }
-            checkCard()
+           checkCard()
+
         }
         
 
         loButton.setOnClickListener{
             cardDeck.getNewCard()
-            if (cardDeck.currentCard.value < cardDeck.nextCard.value){
+            if (cardDeck.oldCard.value <= cardDeck.nextCard.value){
                 message.text = "Correct, Good jobb!!"
                 correctAnswer++
             }else{
@@ -74,12 +76,14 @@ class GameActivity : AppCompatActivity() {
                 wrongGuesses--
             }
             checkCard()
+
         }
+
 
     }
 
     fun checkCard(){
-        showCardsImage.setImageResource(cardDeck.currentCard.image)
+        showCardsImage.setImageResource(cardDeck.oldCard.image)
         rightAnswersTextView.text = "SCORE : $correctAnswer"
         lifeTextView.text = "LIFE️  ❤️️ :  $wrongGuesses"
 
@@ -93,4 +97,6 @@ class GameActivity : AppCompatActivity() {
         val intent = Intent (this,RestartActivity::class.java)
         startActivity(intent)
     }
+
 }
+

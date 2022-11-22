@@ -18,7 +18,7 @@
         android:id="@+id/restartButton"
         android:layout_width="256dp"
         android:layout_height="112dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="220dp"
         android:backgroundTint="#A82C0735"
         android:fontFamily="@font/oleo_script"
         android:onClick="restarGameCard"
@@ -33,7 +33,7 @@
         android:id="@+id/gameOverTextView"
         android:layout_width="312dp"
         android:layout_height="84dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="160dp"
         android:background="#B2BB010B"
         android:elegantTextHeight="true"
         android:fontFamily="@font/oleo_script"
@@ -45,5 +45,29 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/youScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOverTextView" />
+
+    <TextView
+        android:id="@+id/hiScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/youScore" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
