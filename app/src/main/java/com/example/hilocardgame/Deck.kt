@@ -8,7 +8,7 @@ class Deck () {
     init {
         cresteCards()
         getNewCard()
-        cardList.shuffle()
+       cardList.shuffle()
     }
 
 fun cresteCards (){
@@ -67,9 +67,14 @@ fun cresteCards (){
 }
 
     fun getNewCard () : Card {
+
+        if (cardList.size == 1) {
+            cresteCards()
+        }
         nextCard = cardList.removeAt(0)
         oldCard = cardList[0]
         return nextCard
+
     }
 
 

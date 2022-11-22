@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var welcomeTextView: TextView
     lateinit var gameTextView: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         gameTextView = findViewById(R.id.gameNamn)
         gameTextView.text = "High  &  Low  game."
-
 
 
     }

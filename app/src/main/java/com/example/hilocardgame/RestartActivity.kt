@@ -16,20 +16,24 @@ class RestartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restart)
 
+        val yScore = intent.getStringExtra("youScore")
+        val hScore = intent.getStringExtra("hiScore")
+
         gameOver = findViewById(R.id.gameOverTextView)
         gameOver.text = "GAME OVER !!"
 
         youScore = findViewById(R.id.youScore)
-        youScore.text = "You score is: "
+        youScore.text = "You score is: $yScore "
         hiScore = findViewById(R.id.hiScore)
-        hiScore.text = "Hi score is: "
-    }
+        hiScore.text = "Hi score is: $hScore"
 
+
+    }
 
     fun restarGameCard(view : View){
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
-
     }
+
 }

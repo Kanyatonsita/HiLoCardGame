@@ -82,19 +82,28 @@ class GameActivity : AppCompatActivity() {
 
     }
 
-    fun checkCard(){
+    private fun checkCard(){
         showCardsImage.setImageResource(cardDeck.oldCard.image)
         rightAnswersTextView.text = "SCORE : $correctAnswer"
         lifeTextView.text = "LIFE️  ❤️️ :  $wrongGuesses"
 
         if (wrongGuesses == 0) {
-            gameOver()
+            gameOverAndShowScore()
         }
     }
 
+    private fun gameOverAndShowScore(){
 
-    private fun gameOver(){
+        val rightText = rightAnswersTextView.text.toString()
+        val ShowScore = rightText.toIntOrNull()
+
         val intent = Intent (this,RestartActivity::class.java)
+        intent.putExtra("youScore",correctAnswer.toString())
+        intent.putExtra("hiScore",correctAnswer.toString())
+
+        if (ShowScore == correctAnswer){
+            correctAnswer++
+        }
         startActivity(intent)
     }
 
