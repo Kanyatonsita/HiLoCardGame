@@ -1,11 +1,16 @@
 package com.example.hilocardgame
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import kotlin.math.log
 
 class GameActivity : AppCompatActivity() {
 
@@ -14,6 +19,7 @@ class GameActivity : AppCompatActivity() {
 
     lateinit var rightAnswersTextView: TextView
     var correctAnswer = 0
+
 
     lateinit var questionTextView: TextView
     lateinit var guessTextView: TextView
@@ -64,7 +70,7 @@ class GameActivity : AppCompatActivity() {
            checkCard()
 
         }
-        
+
 
         loButton.setOnClickListener{
             cardDeck.getNewCard()
@@ -82,6 +88,7 @@ class GameActivity : AppCompatActivity() {
 
     }
 
+
     private fun checkCard(){
         showCardsImage.setImageResource(cardDeck.oldCard.image)
         rightAnswersTextView.text = "SCORE : $correctAnswer"
@@ -98,14 +105,12 @@ class GameActivity : AppCompatActivity() {
         val ShowScore = rightText.toIntOrNull()
 
         val intent = Intent (this,RestartActivity::class.java)
-        intent.putExtra("youScore",correctAnswer.toString())
-        intent.putExtra("hiScore",correctAnswer.toString())
+        intent.putExtra("youScore",correctAnswer)
 
         if (ShowScore == correctAnswer){
             correctAnswer++
         }
         startActivity(intent)
     }
-
 }
 
