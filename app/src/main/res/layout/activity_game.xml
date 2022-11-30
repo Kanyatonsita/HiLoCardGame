@@ -7,6 +7,26 @@
     android:background="#DCB0AFFC"
     tools:context=".GameActivity">
 
+    <ImageView
+        android:id="@+id/imageLife2"
+        android:layout_width="26dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageLife1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/imageLife1"
+        android:layout_width="24dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/lifeTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/heart" />
+
     <TextView
         android:id="@+id/massageTextView"
         android:layout_width="wrap_content"
@@ -119,5 +139,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question"
         app:srcCompat="@drawable/spades_queen" />
+
+    <ImageView
+        android:id="@+id/imageLife3"
+        android:layout_width="26dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageLife2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/imageLife4"
+        android:layout_width="26dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageLife3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/imageLife5"
+        android:layout_width="26dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageLife4"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/heart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

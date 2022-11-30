@@ -27,6 +27,14 @@ class GameActivity : AppCompatActivity() {
 
     lateinit var showCardsImage : ImageView
 
+    lateinit var lifeOneImage : ImageView
+    lateinit var lifeTwoImage : ImageView
+    lateinit var lifeThreeImage : ImageView
+    lateinit var lifeFourImage : ImageView
+    lateinit var lifeFiveImage : ImageView
+
+    var lifeArrayList = mutableListOf<ImageView>()
+
     val cardDeck = Deck()
 
 
@@ -35,26 +43,37 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
 
         lifeTextView = findViewById(R.id.lifeTextView)
+        rightAnswersTextView = findViewById(R.id.rightAnswers)
+        questionTextView = findViewById(R.id.question)
+        guessTextView = findViewById(R.id.guess)
+        message = findViewById(R.id.massageTextView)
+        showCardsImage = findViewById(R.id.CardsImage)
+
+        lifeOneImage = findViewById(R.id.imageLife1)
+        lifeTwoImage = findViewById(R.id.imageLife2)
+        lifeThreeImage = findViewById(R.id.imageLife3)
+        lifeFourImage = findViewById(R.id.imageLife4)
+        lifeFiveImage = findViewById(R.id.imageLife5)
+
         lifeTextView.text = "LIFE️  ❤️️ :  $wrongGuesses"
 
-        rightAnswersTextView = findViewById(R.id.rightAnswers)
         rightAnswersTextView.text = "SCORE : $correctAnswer"
 
-        questionTextView = findViewById(R.id.question)
         questionTextView.text = "Do you think the next card is\nhigher or lower?"
 
-        guessTextView = findViewById(R.id.guess)
         guessTextView.text = "Let´s  guess !!"
 
-        message = findViewById(R.id.massageTextView)
-
-        showCardsImage = findViewById(R.id.CardsImage)
         showCardsImage.setImageResource(cardDeck.cardList[0].image)
-
 
         val hiButton = findViewById<Button>(R.id.higherButton)
         val loButton = findViewById<Button>(R.id.lowerButton)
 
+
+        lifeArrayList.add(0,lifeOneImage)
+        lifeArrayList.add(1,lifeTwoImage)
+        lifeArrayList.add(2,lifeThreeImage)
+        lifeArrayList.add(3,lifeFourImage)
+        lifeArrayList.add(4,lifeFiveImage)
 
 
         hiButton.setOnClickListener{
@@ -66,9 +85,11 @@ class GameActivity : AppCompatActivity() {
             }else{
                 message.text = "Wrong, try again!!"
                 wrongGuesses--
+                lifeArrayList.removeAt(0)
+               
             }
-           checkCard()
-
+            checkCard()
+            lifeImageView()
         }
 
 
@@ -84,7 +105,6 @@ class GameActivity : AppCompatActivity() {
             checkCard()
 
         }
-
 
     }
 
@@ -112,5 +132,23 @@ class GameActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
-}
+
+    private fun lifeImageView(){
+        var i = 0
+       while (i < wrongGuesses){
+          lifeArrayList.get(i).setBackgroundResource(R.drawable.heart)
+           i++
+       }
+    }
+
+    private fun  removeImageView(){
+        var i = 5
+        while (wrongGuesses < i){
+           lifeArrayList.get(i).setBackgroundResource(R.drawable.hearts_jack)
+            i--
+        }
+    }
+
+    }
+
 

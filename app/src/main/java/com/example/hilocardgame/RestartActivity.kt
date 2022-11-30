@@ -18,22 +18,22 @@ class RestartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restart)
 
+        gameOver = findViewById(R.id.gameOverTextView)
+        youScore = findViewById(R.id.youScore)
+        hiScore = findViewById(R.id.hiScore)
+
         //Använd SharedPreferences
         //i restart aktivitet läs om det finns ett värde sparat i shared prefernces och spara i hScore
-
         val sharedPref = getSharedPreferences("score", Context.MODE_PRIVATE)
-
         val hScore = sharedPref.getInt("hiScore",0)
 
         val yScore = intent.getIntExtra("youScore",0)
 
-        gameOver = findViewById(R.id.gameOverTextView)
+
         gameOver.text = "GAME OVER !!"
 
-        youScore = findViewById(R.id.youScore)
         youScore.text = "You score is: $yScore "
 
-        hiScore = findViewById(R.id.hiScore)
         hiScore.text = "Hi score is: $hScore"
 
 
@@ -43,7 +43,7 @@ class RestartActivity : AppCompatActivity() {
         val editor = preferences.edit();
         editor.putInt("hiScore", yScore);
         editor.apply();
-        hiScore.text = "New hi score!! : $yScore"
+        hiScore.text ="Woooooohoo God job!! \n" + "\n   New hi score is : $yScore"
         }
     }
 
