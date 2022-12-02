@@ -26,10 +26,9 @@ class RestartActivity : AppCompatActivity() {
         gameOver = findViewById(R.id.gameOverTextView)
         yourScore = findViewById(R.id.youScore)
         hiScore = findViewById(R.id.hiScore)
-        correctView = findViewById(R.id.correctView)
+        correctView = findViewById(R.id.correctView) //Confetti.
 
-        //Använd SharedPreferences
-        //i restart aktivitet läs om det finns ett värde sparat i shared prefernces och spara i hScore
+        //Use SharedPreferences in restart activity.
         val sharedPref = getSharedPreferences("score", Context.MODE_PRIVATE)
         val hScore = sharedPref.getInt("hiScore",0)
 
@@ -44,12 +43,15 @@ class RestartActivity : AppCompatActivity() {
 
 
         //if-sat
+        //read if there is a value saved in sharedpreferences and save in hScore
+        //Show confetti if it is new high score
         if (yScore > hScore){
         val preferences = getSharedPreferences("score", Context.MODE_PRIVATE);
         val editor = preferences.edit();
         editor.putInt("hiScore", yScore);
         editor.apply();
         hiScore.text ="Woooooohoo Good job!! \n" + "\n   New hi score is : $yScore"
+
             correctView.start(
                 Party(
                 angle = 10,
@@ -64,6 +66,7 @@ class RestartActivity : AppCompatActivity() {
         }
     }
 
+    //button for back to restar game.
     fun restarGameCard(view : View){
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

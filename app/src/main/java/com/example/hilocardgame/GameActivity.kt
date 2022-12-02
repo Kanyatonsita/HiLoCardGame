@@ -25,7 +25,6 @@ class GameActivity : AppCompatActivity() {
     lateinit var rightAnswersTextView: TextView
     var correctAnswer = 0
 
-
     lateinit var questionTextView: TextView
     lateinit var guessTextView: TextView
     lateinit var message: TextView
@@ -37,6 +36,7 @@ class GameActivity : AppCompatActivity() {
     lateinit var lifeThreeImage : ImageView
     lateinit var lifeFourImage : ImageView
     lateinit var lifeFiveImage : ImageView
+
     lateinit var correctView: KonfettiView
 
     var lifeArrayList = mutableListOf<ImageView>()
@@ -50,10 +50,13 @@ class GameActivity : AppCompatActivity() {
 
         lifeTextView = findViewById(R.id.lifeTextView)
         rightAnswersTextView = findViewById(R.id.rightAnswers)
+
         questionTextView = findViewById(R.id.question)
         guessTextView = findViewById(R.id.guess)
         message = findViewById(R.id.massageTextView)
+
         showCardsImage = findViewById(R.id.CardsImage)
+
         correctView = findViewById(R.id.correctView)
 
         lifeOneImage = findViewById(R.id.imageLife1)
@@ -75,26 +78,24 @@ class GameActivity : AppCompatActivity() {
         val hiButton = findViewById<Button>(R.id.higherButton)
         val loButton = findViewById<Button>(R.id.lowerButton)
 
-
         lifeArrayList.add(0,lifeOneImage)
         lifeArrayList.add(1,lifeTwoImage)
         lifeArrayList.add(2,lifeThreeImage)
         lifeArrayList.add(3,lifeFourImage)
         lifeArrayList.add(4,lifeFiveImage)
 
+        setHeart()
 
-        lifeImageView()
         hiButton.setOnClickListener{
             cardDeck.getNewCard()
             if (cardDeck.oldCard.value >= cardDeck.nextCard.value){
                 konfettiShow()
                 message.text = "Correct, Good jobb!!"
                 correctAnswer++
-
             }else{
                 message.text = "Wrong, try again!!"
                 wrongGuesses--
-                takeAwayLives()
+                setHeart()
             }
             checkCard()
 
@@ -110,7 +111,7 @@ class GameActivity : AppCompatActivity() {
             }else{
                 message.text = "Wrong, try again!!"
                 wrongGuesses--
-                takeAwayLives()
+                setHeart()
             }
             checkCard()
 
@@ -118,6 +119,7 @@ class GameActivity : AppCompatActivity() {
 
     }
 
+    //Function to show confetti.
     private fun konfettiShow(){
             correctView.start(
                            Party(
@@ -133,6 +135,7 @@ class GameActivity : AppCompatActivity() {
     }
 
 
+    //Function to check card and game over.
     private fun checkCard(){
         showCardsImage.setImageResource(cardDeck.oldCard.image)
         rightAnswersTextView.text = "SCORE : $correctAnswer"
@@ -157,19 +160,14 @@ class GameActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun lifeImageView(){
-    var i = 0
-       while (i < wrongGuesses){
-          lifeArrayList.get(i).setBackgroundResource(R.drawable.blackheart)
-           i++
-       }
-    }
-
-    private fun takeAwayLives(){
-        var j = 5
-        while ( wrongGuesses < j){
-            lifeArrayList.get(wrongGuesses).setBackgroundResource(R.drawable.blank)
-            j--    }
+    private fun setHeart(){
+        lifeArrayList.forEachIndexed { index, imageView ->
+            if (index < wrongGuesses){
+                imageView.setBackgroundResource(R.drawable.blackheart)
+            }else{
+                imageView.setBackgroundResource(R.drawable.blank)
+            }
+        }
     }
 
     }

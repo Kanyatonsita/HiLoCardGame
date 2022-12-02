@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     //Button for start next activity. (Start game!!)
     fun startGameActivity(view: View) {
         val intent = Intent(this, GameActivity::class.java)
